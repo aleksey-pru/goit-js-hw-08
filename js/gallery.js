@@ -1,3 +1,4 @@
+
 const refs = {
     gallery: document.querySelector('.gallery')
 }
@@ -91,8 +92,14 @@ refs.gallery.insertAdjacentHTML('afterbegin', imagiesTemplate(images));
 
 refs.gallery.addEventListener('click', (e)=> {
     e.preventDefault();
-    const linkElem = e.target.closest('a');
-    const imageLink = linkElem.getAttribute('href')
-    console.log(imageLink);
+    // const linkElem = e.target.closest('a');
+    // const imageLink = linkElem.getAttribute('href');
+    const imageSrc = e.target.getAttribute('data-source');
+    const instance = basicLightbox.create(`
+      <img src="${imageSrc}" width="800" height="600">
+    `)
+    instance.show();
+    // console.log(imageLink);
     
 })
+
