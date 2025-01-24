@@ -91,4 +91,8 @@ refs.gallery.insertAdjacentHTML('afterbegin', imagiesTemplate(images));
 
 refs.gallery.addEventListener('click', (e)=> {
     e.preventDefault();
+    const linkElem = e.target.closest('a');
+    const imageLink = linkElem.getAttribute('href')
+    console.log(imageLink);
+    
 })
